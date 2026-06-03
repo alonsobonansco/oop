@@ -8,7 +8,7 @@ Campus virtual
 Descripción:
 
 Proyecto corresponde a un sistema de veterinaria para
-no cometer errores al momento de registar (trazabilidad)
+no cometer errores al momento de registrar (trazabilidad)
 
 ```text
 📁 src/
