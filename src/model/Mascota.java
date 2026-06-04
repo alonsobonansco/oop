@@ -12,7 +12,7 @@ public class Mascota {
     private String especie;
     private int edad;
     // =================
-    private Dueño dueño;                // Integración de la clase Dueño como atributo
+    private Dueno dueno;                // Integración de la clase Dueño como atributo
     // =================
 
     /**
@@ -22,15 +22,15 @@ public class Mascota {
      * @param nombre    Nombre de la mascota
      * @param especie   Especie del animal
      * @param edad      Edad del animal en años
-     * @param dueño     Información sobre el dueño
+     * @param dueno     Información sobre el dueño
      */
-    public Mascota(String nombre, String especie, int edad, Dueño dueño) {
+    public Mascota(String nombre, String especie, int edad, Dueno dueno) {
 
         this.nombre = nombre;
         this.especie = especie;
         this.edad = edad;
         // ================
-        this.dueño = dueño;         // Agregación (relación débil "has-a")
+        this.dueno = dueno;         // Agregación (relación débil "has-a")
         // ================
     }
 
@@ -48,15 +48,15 @@ public class Mascota {
 
     public void setEdad(int edad) {this.edad = edad;}
 
-    public Dueño getDueño() {return dueño;}
+    public Dueno getDueno() {return dueno;}
 
-    public void setDueño(Dueño dueño) {this.dueño = dueño;}
+    public void setDueno(Dueno dueno) {this.dueno = dueno;}
 
 
     // Método toString()
     @Override
     public String toString() {
         return  " --- DATOS DEL REGISTRO ---\n" +
-                "Mascota: " + nombre + " | Especie: " + especie + " | Edad: " + edad + "\n" + dueño     ;
+                "Mascota: " + nombre + " | Especie: " + especie + " | Edad: " + edad + "\n" + dueno     ;
     }
 }

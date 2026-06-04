@@ -5,7 +5,7 @@ package model;
  * Sus atributos son: nombre, teléfono, dirección.
  * Aplica composición con Direccion.
  */
-public class Dueño {
+public class Dueno {
 
     private String nombre;
     private String telefono;
@@ -14,7 +14,7 @@ public class Dueño {
     // =========================
 
     /**
-     *  Constructor del Dueño
+     *  Constructor de Dueno
      *
      * @param nombre    Nombre del dueño
      * @param telefono  Teléfono de contacto del dueño
@@ -22,7 +22,7 @@ public class Dueño {
      * @param ciudad    La ciudad de residencia
      * @param region    La región en número romanos
      */
-    public Dueño(String nombre, String telefono, String calle, String ciudad, String region) {
+    public Dueno(String nombre, String telefono, String calle, String ciudad, String region) {
         this.nombre = nombre;
         this.telefono = telefono;
         // ===========
