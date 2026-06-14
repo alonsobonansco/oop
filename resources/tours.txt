@@ -1,0 +1,5 @@
+Trekking Volcán Osorno;10;6.0
+Casa del Lago;7;2.0
+Saltos del Petrohué;14;5.0
+Vuelta al Lago LLanquihue;6;2.5
+Paseo en Kayak;3;2.0
