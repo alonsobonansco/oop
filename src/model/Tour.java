@@ -1,7 +1,8 @@
 package model;
 
 /**
- *  Representa...
+ * Representa un tour en la agencia Llanquihue Tour con algunos datos.
+ * Sus atributos son: nombreCircuito, cantidadPersonas y duracion.
  */
 public class Tour {
 
@@ -20,6 +21,13 @@ public class Tour {
         return nombreCircuito;
     }
 
+    /**
+     * Método modificador con if statement para validar que el nombre no esté vacío.
+     * Lanza una excepción en caso de que esté vacío. Sino, asigna el valor que recibe.
+     * Es reutilizado en el constructor.
+     *
+     * @param nombreCircuito El nombre del tour
+     */
     public void setNombreCircuito(String nombreCircuito) {
         if (nombreCircuito == null || nombreCircuito.isBlank()) {
             throw new IllegalArgumentException("El nombre del tour no puede estar vacío.");

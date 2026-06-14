@@ -1,8 +1,10 @@
-🐝 Actividad Formativa 3 (Semana 4)
---- 
+🏞️ Llanquihue Tour App
+---  
+Actividad formativa 3 (Semana 4)
+
 Autor:  
 Alonso Antonio Bonansco Vergara  
-Desarrollo Orientado a Objetos I  - 006A  
+Desarrollo Orientado a Objetos I - 006A  
 Analista Programador Computacional  
 Campus Virtual
 
@@ -10,38 +12,39 @@ Campus Virtual
 
 
 Descripción:  
-Proyecto corresponde a una agencia de turismo ubicada
-en el sur de Chile (Llanquihue) con una problemática
-de organización. Entre ellas, falta de estructura común
-y diferenciación de roles en las personas asociadas con
-la empresa, errores en los registros manuales y poca
-reutilización de clases y plantillas.  
-Se aplican principios de encapsulamiento,
-composición y herencia, proponiendo una solución estructurada,
-modular y reutilizable.
+Problemática: Llanquihue Tour desea gestionar de manera eficiente
+la información de sus tours clasificados por tipo, para mostrarlos
+en catálogos según las preferencias de sus clientes.
+
+Para solucionar el problema se cargan los datos desde un archivo
+`tours.txt` a un objeto Tour. Se recorren todos los tours de la lista
+de tours, filtrando aquellos que duren menos de cuatro horas. Para aquellos
+que deseen un circuito no muy exigente.
 
 ---
 
 Estructura:
+
 ```text
-📁 resources/
+📁 resources/                     # Contiene el archivo txt solicitado    
 └── 📄 tours.txt
 📁 src/
 ├── 📁 ui/                        # Contiene la clase principal con el método main
 │   └── 📄 Main.java                
-├── 📁 model/                      # Contiene las clases del dominio
+├── 📁 model/                     # Contiene la clase del dominio
 │   └── 📄 Tour.java    
-└── 📁 data/                      # Contiene las clases del dominio
+└── 📁 data/                      # Contiene la clase que carga desde el archivo a los objetos 
     └── 📄 GestorDatos.java           
 ```
+
 ---
 Instrucciones para clonar y ejecutar:
+
 1. Clonar el repositorio desde GitHub  
-   git clone https://github.com/alonsobonansco/AgenciaTurismo.git
-2. Abrir la carpeta del proyecto (AgenciaTurismo) en Intellij
-3. Ir a la clase Main, ubicada en el paquete app. Hacer click derecho en cualquier
-   parte del código (se abre un menú), seleccionar la opción que dice Run
-   (tiene un ícono de flecha de color verde)
+   git clone https://github.com/alonsobonansco/llanquihue-tour.git
+2. Abrir la carpeta del proyecto (LlanquihueTourApp) en Intellij
+3. Verificar que el archivo `tours.txt` se encuentra dentro de la carpeta resources
+4. Ejecutar el main desde su clase en el paquete ui
 
 Repositorio Github:
-https://github.com/alonsobonansco/AgenciaTurismo
+https://github.com/alonsobonansco/llanquihue-tour
