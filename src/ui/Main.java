@@ -3,7 +3,7 @@ package ui;
 import data.GestorDatos;
 import model.Tour;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Punto de ejecución de la aplicación LlanquihueTour.
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Luego muestra todos los resultados y, si hay, posteriormente los filtrados.
  *
  * @author Alonso Bonansco
- * @version 1.3.0
+ * @version 1.3.1
  * @since Semana 4
  */
 public class Main {
@@ -20,7 +20,7 @@ public class Main {
         //  Se manda el nombre del archivo aquí, la clase
         //  recibe un String ruta. Hace al GestorDatos
         //  flexible y reutilizable.
-        ArrayList<Tour> listaTours = GestorDatos.leerDatos("/tours.txt");
+        List<Tour> listaTours = GestorDatos.leerDatos("/tours.txt");
 
         if (listaTours.isEmpty()) {
             System.out.println("Error al cargar los datos. Verifique que hayan datos en el archivo.");

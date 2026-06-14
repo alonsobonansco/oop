@@ -8,18 +8,19 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Clase que hace la gestión de los datos. Carga los datos del archivo txt,
- * los convierte donde sea necesario, crea un objeto tour y lo añade a una ArrayList datosTour.
+ * los convierte donde sea necesario, crea un objeto tour y lo añade a una List datosTour.
  */
 public class GestorDatos {
 
     // static: pertenece a la clase en sí y no a los objetos que se crean de ella,
     // permite no crear un objeto en el main para poder llamar al método
-    public static ArrayList<Tour> leerDatos(String ruta) {
+    public static List<Tour> leerDatos(String ruta) {
 
-        ArrayList<Tour> datosTour = new ArrayList<>();
+        List<Tour> datosTour = new ArrayList<>();
 
         try (InputStream is = GestorDatos.class.getResourceAsStream(ruta)) {
 
