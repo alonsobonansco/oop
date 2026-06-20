@@ -39,15 +39,15 @@ public class CargadorEmpleados {
                         Empleado nuevoEmpleado = EmpleadosFactory.crearEmpleado(partes, linea, contadorLineas);
                         empleados.add(nuevoEmpleado);
 
-                    } catch (NumberFormatException e) {
-                        System.err.println("Tipo de dato ingresado no válido: (linea "
-                                + contadorLineas + ": " + linea + ")"
-                        );
                     } catch (LineaInvalidaException e) {
                         System.err.println(e.getMessage());
+
                     } catch (IllegalArgumentException e) {
-                        System.err.println(e.getMessage() + " Línea " + contadorLineas
-                                + ": " + linea);
+
+                        String tipoError = e.getClass().getSimpleName();
+
+                        System.err.println("[" + tipoError + "] " + e.getMessage() +
+                                " (Línea " + contadorLineas + ": " + linea + ")");
                     }
 
                 }

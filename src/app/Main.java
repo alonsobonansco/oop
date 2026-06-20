@@ -10,18 +10,16 @@ import java.util.Scanner;
 
 /**
  * Simula la creación de empleados con diversas ocupaciones y sus datos
- * dentro de una Agencia de Turismo. Se procede a filtrar dependiendo
- * de las necesidades.
+ * dentro de una Agencia de Turismo. Los datos son cargados desde un txt.
  *
  * @author Alonso Bonansco
- * @version 2.0.0
+ * @version 2.1.0
  * @since Semana 3 (Actualizado en Semana 5)
  *
  */
 public class Main {
     public static void main(String[] args) {
 
-        // Crea un scanner y se lo presta a ui.Menu
         Scanner sc = new Scanner(System.in);
 
         CargadorEmpleados cargadorEmpleados = new CargadorEmpleados();
@@ -29,7 +27,7 @@ public class Main {
 
         List<Empleado> listaEmpleados = cargadorEmpleados.cargarEmpleados("/empleados.txt");
 
-        // Aquí ocurre el préstamo
+        // Se mandan scanner, el gestor y la lista de empleados a la clase Menu
         Menu menu = new Menu(sc, gestorAgencia, listaEmpleados);
 
         menu.iniciar();

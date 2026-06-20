@@ -40,7 +40,7 @@ public class Persona {
 
     public void setNombre(String nombre) {
         if (nombre == null || nombre.isBlank()) {
-            throw new IllegalArgumentException("El nombre de la persona no puede estar vacío.");
+            throw new IllegalArgumentException("El nombre de la persona no puede estar vacío. ");
         }
         this.nombre = nombre;
     }
@@ -56,7 +56,7 @@ public class Persona {
      */
     public void setEdad(int edad) {
         if (edad < 0) {
-            throw new IllegalArgumentException("La persona no puede tener edad negativa.");
+            throw new IllegalArgumentException("La persona no puede tener edad negativa. ");
         }
         this.edad = edad;
     }

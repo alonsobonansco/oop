@@ -25,7 +25,7 @@ public class Direccion {
 
     public void setCalle(String calle) {
         if (calle == null || calle.isBlank()) {
-            throw new IllegalArgumentException("Calle no válida.");
+            throw new IllegalArgumentException("Calle no válida. ");
         }
         this.calle = calle;
     }
@@ -36,7 +36,7 @@ public class Direccion {
 
     public void setSector(String sector) {
         if (sector == null || sector.isBlank()) {
-            throw new IllegalArgumentException("Sector no válido.");
+            throw new IllegalArgumentException("Sector no válido. ");
         }
         this.sector = sector;
     }
@@ -47,7 +47,7 @@ public class Direccion {
 
     public void setCiudad(String ciudad) {
         if (ciudad == null || ciudad.isBlank()) {
-            throw new IllegalArgumentException("Ciudad no válida.");
+            throw new IllegalArgumentException("Ciudad no válida. ");
         }
         this.ciudad = ciudad;
     }

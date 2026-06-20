@@ -31,7 +31,7 @@ public class GuiaTuristico extends Empleado {
 
     public void setCircuitoTuristico(String circuitoTuristico) {
         if (circuitoTuristico == null || circuitoTuristico.isBlank()) {
-            throw new IllegalArgumentException("Error en los datos del circuito del guía.");
+            throw new IllegalArgumentException("Error en los datos del circuito del guía. ");
         }
         this.circuitoTuristico = circuitoTuristico;
     }
@@ -42,7 +42,7 @@ public class GuiaTuristico extends Empleado {
 
     public void setIdiomas(List<String> idiomas) {
         if (idiomas == null || idiomas.isEmpty()) {
-            throw new IllegalArgumentException("Error en ingreso de datos en idiomas.");
+            throw new IllegalArgumentException("Error en ingreso de datos en idiomas. ");
         }
         this.idiomas = new ArrayList<>(idiomas);
     }

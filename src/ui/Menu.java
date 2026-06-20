@@ -1,6 +1,8 @@
 package ui;
 
 import model.Empleado;
+import model.GuiaTuristico;
+import model.Transportista;
 import service.GestorAgencia;
 
 import java.util.List;
@@ -14,7 +16,7 @@ public class Menu {
     private final List<Empleado> listaEmpleados;
 
     // Se pasa el scanner como atributo. Cualquier método puede utilizarlo
-    public Menu(Scanner sc, GestorAgencia gestorAgencia, List<Empleado> listaEmpleados){
+    public Menu(Scanner sc, GestorAgencia gestorAgencia, List<Empleado> listaEmpleados) {
 
         this.sc = sc;
         this.gestorAgencia = gestorAgencia;
@@ -39,13 +41,31 @@ public class Menu {
                 case 2 -> {
                     System.out.print("¿Qué idioma desea buscar? ");
                     String idiomaBuscado = sc.nextLine();
-                    gestorAgencia.buscarGuiasPorIdioma(listaEmpleados, idiomaBuscado);
+
+                    List<GuiaTuristico> guiasEncontrados =
+                            gestorAgencia.buscarGuiasPorIdioma(listaEmpleados, idiomaBuscado);
+
+                    if (guiasEncontrados.isEmpty()) {
+                        System.out.println("\nNo se encontraron guías que hablen el idioma requerido.\n");
+                    } else {
+                        System.out.println("\n--- Guías encontrados ---\n");
+                        guiasEncontrados.forEach(System.out::println);
+                    }
                 }
 
                 case 3 -> {
                     System.out.print("¿Qué tipo de vehículo necesita? ");
                     String vehiculoBuscado = sc.nextLine();
-                    gestorAgencia.buscarTransportistasPorVehiculo(listaEmpleados, vehiculoBuscado);
+
+                    List<Transportista> transportistasEncontrados =
+                            gestorAgencia.buscarTransportistasPorVehiculo(listaEmpleados, vehiculoBuscado);
+
+                    if (transportistasEncontrados.isEmpty()) {
+                        System.out.println("\nNo se encontraron transportistas con el vehículo requerido.\n");
+                    } else {
+                        System.out.println("\n--- Transportistas encontrados ---\n");
+                        transportistasEncontrados.forEach(System.out::println);
+                    }
                 }
 
                 case 4 -> System.out.println("Saliendo de LlanquihueTourApp...");

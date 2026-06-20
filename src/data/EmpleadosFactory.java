@@ -7,12 +7,17 @@ import util.LineaInvalidaException;
 
 import java.util.List;
 
+/**
+ * Clase encargada de tomar las líneas leídas desde el txt y transformarlas
+ * en objetos dependiendo de qué tipo es. No añade a una List<>, pero devuelve
+ * el objeto para que CargadorEmpleados termine el trabajo.
+ */
 public class EmpleadosFactory {
 
     public static Empleado crearEmpleado(String[] partes, String linea, int contadorLineas) {
         if (partes.length < 9) {
-            throw new LineaInvalidaException("Datos insuficientes. Verifique el archivo " +
-                    "(linea " + contadorLineas + ": " + linea + ")");
+            throw new LineaInvalidaException("Datos insuficientes, verifique el archivo. ",
+                    linea, contadorLineas);
         }
 
         // Corresponde al primer valor guardado en el txt, para poder distinguir empleos
@@ -28,46 +33,49 @@ public class EmpleadosFactory {
         String correoElectronico = partes[7];
         double sueldo = Double.parseDouble(partes[8]);
 
-        // En caso de que sea un guía se siguen añadiendo partes
-        if (tipo.equals("Guía")) {
+        return switch (tipo) {
 
-            if (partes.length != 11) {
-                throw new LineaInvalidaException("Formato no válido para guía: " +
-                        "(linea " + contadorLineas + ": " + linea + ")");
+            // En caso de que sea un guía se siguen añadiendo partes
+            case "Guía" -> {
+                if (partes.length != 11) {
+                    throw new LineaInvalidaException("Formato no válido para guía. ",
+                            linea, contadorLineas);
+                }
+
+                String circuitoTuristico = partes[9];
+                List<String> idiomas = List.of(partes[10].split("\\|"));
+
+                // yield: palabra clave que retorna el valor al switch
+                yield new GuiaTuristico(
+                        nombre, edad,
+                        calle, sector, ciudad,
+                        numeroTelefono, correoElectronico,
+                        sueldo, circuitoTuristico, idiomas
+                );
             }
 
-            String circuitoTuristico = partes[9];
-            List<String> idiomas = List.of(partes[10].split("\\|"));
+            // Aquí se añaden las partes al transportista
+            case "Transportista" -> {
+                if (partes.length != 11) {
+                    throw new LineaInvalidaException("Formato no válido para transportista. ",
+                            linea, contadorLineas);
+                }
 
-            return new GuiaTuristico(
-                    nombre, edad,
-                    calle, sector, ciudad,
-                    numeroTelefono, correoElectronico,
-                    sueldo, circuitoTuristico, idiomas
-            );
+                String vehiculo = partes[9];
+                int capacidadMaxima = Integer.parseInt(partes[10]);
 
-            // Y aquí se agregan las partes a transportista
-        } else if (tipo.equals("Transportista")) {
-
-            if (partes.length != 11) {
-                throw new LineaInvalidaException("Formato no válido para transportista: " +
-                        "(linea " + contadorLineas + ": " + linea + ")");
+                yield new Transportista(
+                        nombre, edad,
+                        calle, sector, ciudad,
+                        numeroTelefono, correoElectronico,
+                        sueldo, vehiculo, capacidadMaxima
+                );
             }
 
-            String vehiculo = partes[9];
-            int capacidadMaxima = Integer.parseInt(partes[10]);
+            default -> throw new LineaInvalidaException("Empleo no válido. " +
+                    "Verifique que esté escrito correctamente y sea un empleo válido.\n",
+                    linea, contadorLineas);
+        };
 
-            return new Transportista(
-                    nombre, edad,
-                    calle, sector, ciudad,
-                    numeroTelefono, correoElectronico,
-                    sueldo, vehiculo, capacidadMaxima
-            );
-
-        } else {
-            throw new LineaInvalidaException("Empleo no válido. Verifique " +
-                    "que esté escrito correctamente y sea un empleo válido.\n" +
-                    "(línea: " + contadorLineas + ": " + linea + ")");
-        }
     }
 }

@@ -27,7 +27,7 @@ public class Empleado extends Persona {
 
     public void setSueldo(double sueldo) {
         if (sueldo <= 0) {
-            throw new IllegalArgumentException("El sueldo no puede ser negativo o cero.");
+            throw new IllegalArgumentException("El sueldo no puede ser negativo o cero. ");
         }
         this.sueldo = sueldo;
     }
@@ -41,7 +41,7 @@ public class Empleado extends Persona {
      */
     private void validarEdadEmpleado(int edad) {
         if (edad < 18) {
-            throw new IllegalArgumentException("Un empleado no puede ser menor de edad.");
+            throw new IllegalArgumentException("Un empleado no puede ser menor de edad. ");
         }
     }
 

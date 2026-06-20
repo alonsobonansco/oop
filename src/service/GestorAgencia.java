@@ -4,6 +4,7 @@ import model.Empleado;
 import model.GuiaTuristico;
 import model.Transportista;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static util.TextoUtil.ignorarTildes;
@@ -14,12 +15,12 @@ public class GestorAgencia {
     /**
      *
      * @param empleados     La lista de empleados
-     * @param idiomaBuscado El idioma buscado para filtrar
+     * @param idiomaBuscado El idioma buscado
+     * @return Una lista con los guías que hablen el idioma buscado.
      */
-    public void buscarGuiasPorIdioma(List<Empleado> empleados, String idiomaBuscado) {
+    public List<GuiaTuristico> buscarGuiasPorIdioma(List<Empleado> empleados, String idiomaBuscado) {
 
-        System.out.println();
-        boolean guiaEncontrado = false;
+        List<GuiaTuristico> guiasEncontrados = new ArrayList<>();
 
         for (Empleado e : empleados) {
 
@@ -29,41 +30,35 @@ public class GestorAgencia {
                 for (String idioma : guia.getIdiomas()) {
 
                     if (ignorarTildes(idioma).contains(ignorarTildes(idiomaBuscado))) {
-                        System.out.println(guia);
-                        guiaEncontrado = true;
+                        guiasEncontrados.add(guia);
                         break; // Se deja de escanear a este individuo en específico si lo encuentra
                     }
                 }
             }
         }
-        if (!guiaEncontrado) {
-            System.out.println("No se encontraron guías que hablen " + idiomaBuscado + "\n");
-        }
 
+        return guiasEncontrados;
     }
 
     /**
      *
      * @param empleados       La lista de empleados
-     * @param vehiculoBuscado El tipo de vehículo buscado para filtrar
+     * @param vehiculoBuscado El vehículo buscado
+     * @return Una lista con los transportistas que tengan el vehículo buscado.
      */
-    public void buscarTransportistasPorVehiculo(List<Empleado> empleados, String vehiculoBuscado) {
+    public List<Transportista> buscarTransportistasPorVehiculo(List<Empleado> empleados, String vehiculoBuscado) {
 
-        System.out.println();
-        boolean tranportistaEncontrado = false;
+        List<Transportista> transportistasEncontrados = new ArrayList<>();
 
         for (Empleado e : empleados) {
             if (e instanceof Transportista transportista) {
 
                 if (ignorarTildes(transportista.getVehiculo()).contains(ignorarTildes(vehiculoBuscado))) {
-                    System.out.println(transportista);
-                    tranportistaEncontrado = true;
+                    transportistasEncontrados.add(transportista);
                 }
             }
         }
-        if (!tranportistaEncontrado) {
-            System.out.println("\nNo se encontraron tranportistas con el vehículo requerido.\n");
-        }
+        return transportistasEncontrados;
 
     }
 

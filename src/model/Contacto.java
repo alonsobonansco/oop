@@ -24,7 +24,7 @@ public class Contacto {
 
     public void setNumeroTelefono(String numeroTelefono) {
         if (numeroTelefono == null || numeroTelefono.isBlank()) {
-            throw new IllegalArgumentException("Número de teléfono inválido.");
+            throw new IllegalArgumentException("Número de teléfono inválido. ");
         }
         this.numeroTelefono = numeroTelefono;
     }
@@ -35,7 +35,7 @@ public class Contacto {
 
     public void setCorreoElectronico(String correoElectronico) {
         if (correoElectronico == null || correoElectronico.isBlank()) {
-            throw new IllegalArgumentException("Correo electrónico inválido.");
+            throw new IllegalArgumentException("Correo electrónico inválido. ");
         }
         this.correoElectronico = correoElectronico;
     }

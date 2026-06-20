@@ -29,7 +29,7 @@ public class Transportista extends Empleado {
 
     public void setVehiculo(String vehiculo) {
         if (vehiculo == null || vehiculo.isBlank()) {
-            throw new IllegalArgumentException("Faltan los datos del vehículo.");
+            throw new IllegalArgumentException("Faltan los datos del vehículo. ");
         }
         this.vehiculo = vehiculo;
     }
@@ -41,7 +41,7 @@ public class Transportista extends Empleado {
     public void setCapacidadMaxima(int capacidadMaxima) {
         if (capacidadMaxima < 1) {
             throw new IllegalArgumentException(
-                    "El transportista debe tener un vehículo con capacidad para llevar a una persona."
+                    "El transportista debe tener un vehículo con capacidad para llevar a una persona. "
             );
         }
         this.capacidadMaxima = capacidadMaxima;
