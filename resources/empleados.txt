@@ -1,0 +1,5 @@
+Transportista;José;57;Los Carrera 123;Los Pellines;Llanquihue;12345789;No aplica;450000;Van;12
+Guía;María;45;Jorge Alessandri 456;Frutillar alto;Frutillar;98764321;maria@gmail.com;550000;Teatro del Lago;Español|Alemán|Francés
+Guía;Ricardo;35;Ruta V-695 s/n;Ensenada;Puerto Varas;32197456;ricardo@gmail.com;800000;Trekking volcán Osorno;Español|Inglés|Chino
+Transportista;Mario;40;Bulnes 423;Frutillar bajo;Frutillar;14366889;mario@gmail.com;650000;Van;8
+Transportista;Felipe;38;Balmaceda 671;Llanquihue;Llanquihue;72797426;felipe@gmail.com;750000;Minibús;20
