@@ -20,7 +20,7 @@ public class CargadorEmpleados {
 
         try (InputStream is = CargadorEmpleados.class.getResourceAsStream(ruta)) {
             if (is == null) {
-                System.err.println("Error. No se encontró empleados.txt");
+                System.err.println("Error. No se encontró " + ruta);
                 return empleados;
             }
 

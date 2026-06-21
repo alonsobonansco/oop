@@ -37,7 +37,8 @@ public class Menu {
                 case 1 -> {
                     System.out.println();
                     // Nueva forma de recorrer una lista. "Referencia a Método"
-                    listaEmpleados.forEach(System.out::println);
+                    listaEmpleados.forEach(System.out::print);
+                    System.out.println("--------------------------------------------------\n");
                 }
 
                 case 2 -> {
@@ -51,7 +52,8 @@ public class Menu {
                         System.out.println("\nNo se encontraron guías que hablen el idioma requerido.\n");
                     } else {
                         System.out.println("\n--- Guías encontrados ---\n");
-                        guiasEncontrados.forEach(System.out::println);
+                        guiasEncontrados.forEach(System.out::print);
+                        System.out.println("--------------------------------------------------\n");
                     }
                 }
 
@@ -66,7 +68,8 @@ public class Menu {
                         System.out.println("\nNo se encontraron transportistas con el vehículo requerido.\n");
                     } else {
                         System.out.println("\n--- Transportistas encontrados ---\n");
-                        transportistasEncontrados.forEach(System.out::println);
+                        transportistasEncontrados.forEach(System.out::print);
+                        System.out.println("--------------------------------------------------\n");
                     }
                 }
 
