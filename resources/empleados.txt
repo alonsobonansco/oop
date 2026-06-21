@@ -3,3 +3,5 @@ Guía;María;45;Jorge Alessandri 456;Frutillar alto;Frutillar;98764321;maria@gma
 Guía;Ricardo;35;Ruta V-695 s/n;Ensenada;Puerto Varas;32197456;ricardo@gmail.com;800000;Trekking volcán Osorno;Español|Inglés|Chino
 Transportista;Mario;40;Bulnes 423;Frutillar bajo;Frutillar;14366889;mario@gmail.com;650000;Van;8
 Transportista;Felipe;38;Balmaceda 671;Llanquihue;Llanquihue;72797426;felipe@gmail.com;750000;Minibús;20
+Guía;Nelson;29;Calle 124;Los Pellines;Llanquihue;98761234;nelson@gmail.com;480000;Saltos del Petrohué;Español|Inglés
+Transportista;Roberto;48;Echeverria 789;Frutillar alto;Frutillar;12191426;roberto@gmail.com;1050000;Lancha;8
