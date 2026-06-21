@@ -10,7 +10,6 @@ import java.util.List;
  * e idiomas (que habla).
  */
 public class GuiaTuristico extends Empleado {
-
     private String circuitoTuristico;
     private List<String> idiomas;
 
@@ -19,7 +18,6 @@ public class GuiaTuristico extends Empleado {
                          String numeroTelefono, String correoElectronico,
                          double sueldo,
                          String circuitoTuristico, List<String> idiomas) {
-
         super(nombre, edad, calle, sector, ciudad, numeroTelefono, correoElectronico, sueldo);
         setCircuitoTuristico(circuitoTuristico);
         setIdiomas(idiomas);

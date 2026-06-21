@@ -7,14 +7,12 @@ package model;
  * Atributo propio: sueldo (que recibe el empleado)
  */
 public class Empleado extends Persona {
-
     private double sueldo;
 
     public Empleado(String nombre, int edad,
                     String calle, String sector, String ciudad,
                     String numeroTelefono, String correoElectronico,
                     double sueldo) {
-
         //  Palabra clave que llama al constructor de la clase padre (superclase)
         super(nombre, edad, calle, sector, ciudad, numeroTelefono, correoElectronico);
         validarEdadEmpleado(edad);

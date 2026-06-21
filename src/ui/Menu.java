@@ -8,8 +8,10 @@ import service.GestorAgencia;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Menú simple de la agencia para navegar entre algunas opciones.
+ */
 public class Menu {
-
     // palabra clave final: optimización, inmutable
     private final Scanner sc;
     private final GestorAgencia gestorAgencia;
@@ -17,21 +19,21 @@ public class Menu {
 
     // Se pasa el scanner como atributo. Cualquier método puede utilizarlo
     public Menu(Scanner sc, GestorAgencia gestorAgencia, List<Empleado> listaEmpleados) {
-
         this.sc = sc;
         this.gestorAgencia = gestorAgencia;
         this.listaEmpleados = listaEmpleados;
     }
 
+    /**
+     * Inicia el menú que se muestra al usuario y permite ingresar datos de entrada
+     * para hacer búsquedas.
+     */
     public void iniciar() {
-
         int opcion;
 
         do {
             opcion = mostrarMenu();
-
             switch (opcion) {
-
                 case 1 -> {
                     System.out.println();
                     // Nueva forma de recorrer una lista. "Referencia a Método"
@@ -71,15 +73,18 @@ public class Menu {
                 case 4 -> System.out.println("Saliendo de LlanquihueTourApp...");
 
                 default -> System.out.println("Opción no válida.\n");
-
             }
         } while (opcion != 4);
 
         cerrar();
     }
 
+    /**
+     * Muestra el menú en consola y captura las opciones del usuario.
+     *
+     * @return La opción ingresada por el usuario.
+     */
     private int mostrarMenu() {
-
         // De StringBuilder pasó a String y finalmente a Text Block (""" triple comillas)
         String textoMenu = """ 
                 === Llanquihue Tour ===
@@ -89,7 +94,6 @@ public class Menu {
                 4. Salir de la aplicación
                 
                 Ingrese su opción:\s"""; // \s espacio en blanco
-
         System.out.print(textoMenu);
 
         try {
@@ -98,8 +102,6 @@ public class Menu {
             System.out.println("Ingrese solo números enteros.");
             return -1; // Número seguro para retornar (por los case del switch)
         }
-
-
     }
 
     public void cerrar() {

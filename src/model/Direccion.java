@@ -7,13 +7,11 @@ package model;
  * o alrededores inmediatos.
  */
 public class Direccion {
-
     private String calle;
     private String sector;
     private String ciudad;
 
     public Direccion(String calle, String sector, String ciudad) {
-
         setCalle(calle);
         setSector(sector);
         setCiudad(ciudad);

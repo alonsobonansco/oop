@@ -8,7 +8,6 @@ package model;
  * capacidadMaxima (de su vehículo).
  */
 public class Transportista extends Empleado {
-
     private String vehiculo;
     private int capacidadMaxima;
 
@@ -17,7 +16,6 @@ public class Transportista extends Empleado {
                          String numeroTelefono, String correoElectronico,
                          double sueldo,
                          String vehiculo, int capacidadMaxima) {
-
         super(nombre, edad, calle, sector, ciudad, numeroTelefono, correoElectronico, sueldo);
         setVehiculo(vehiculo);
         setCapacidadMaxima(capacidadMaxima);

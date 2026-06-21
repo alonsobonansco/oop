@@ -22,7 +22,6 @@ public class EmpleadosFactory {
 
         // Corresponde al primer valor guardado en el txt, para poder distinguir empleos
         String tipo = partes[0];
-
         // Todos los atributos para el constructor de Empleado
         String nombre = partes[1];
         int edad = Integer.parseInt(partes[2]);
@@ -34,7 +33,6 @@ public class EmpleadosFactory {
         double sueldo = Double.parseDouble(partes[8]);
 
         return switch (tipo) {
-
             // En caso de que sea un guía se siguen añadiendo partes
             case "Guía" -> {
                 if (partes.length != 11) {
@@ -43,6 +41,7 @@ public class EmpleadosFactory {
                 }
 
                 String circuitoTuristico = partes[9];
+                // List.of toma los elementos de la parte y entrega una lista
                 List<String> idiomas = List.of(partes[10].split("\\|"));
 
                 // yield: palabra clave que retorna el valor al switch
@@ -76,6 +75,5 @@ public class EmpleadosFactory {
                     "Verifique que esté escrito correctamente y sea un empleo válido.\n",
                     linea, contadorLineas);
         };
-
     }
 }

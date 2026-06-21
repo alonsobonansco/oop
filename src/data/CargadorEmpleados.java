@@ -10,10 +10,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase para leer desde archivo txt. Manda cada línea a EmpleadosFactory,
+ * esta devuelve un objeto construido y se van añadiendo a una List<> Empleado.
+ */
 public class CargadorEmpleados {
-
     public List<Empleado> cargarEmpleados(String ruta) {
-
         List<Empleado> empleados = new ArrayList<>();
 
         try (InputStream is = CargadorEmpleados.class.getResourceAsStream(ruta)) {
@@ -23,7 +25,6 @@ public class CargadorEmpleados {
             }
 
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
-
                 String linea;
                 int contadorLineas = 0;
 
@@ -49,7 +50,6 @@ public class CargadorEmpleados {
                         System.err.println("[" + tipoError + "] " + e.getMessage() +
                                 " (Línea " + contadorLineas + ": " + linea + ")");
                     }
-
                 }
             }
         } catch (IOException e) {
@@ -58,5 +58,4 @@ public class CargadorEmpleados {
 
         return empleados;
     }
-
 }

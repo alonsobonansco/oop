@@ -1,10 +1,9 @@
 package util;
 
 /**
- * Clase con herramientas de texto para reutilizar donde sea necesario
+ * Clase con herramientas de texto para reutilizar donde sea necesario.
  */
 public class TextoUtil {
-
     public static String ignorarTildes(String texto) {
         if (texto == null || texto.isBlank()) return "";
         return texto.toLowerCase()

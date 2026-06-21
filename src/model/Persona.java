@@ -12,7 +12,6 @@ package model;
  *
  */
 public class Persona {
-
     // Atributos privados
     private String nombre;
     private int edad;
@@ -24,7 +23,6 @@ public class Persona {
     public Persona(String nombre, int edad,
                    String calle, String sector, String ciudad,
                    String numeroTelefono, String correoElectronico) {
-
         setNombre(nombre);
         setEdad(edad);
         // ------------------

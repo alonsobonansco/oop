@@ -7,16 +7,13 @@ package model;
  * Los atributos son numeroTelefono y correoElectronico.
  */
 public class Contacto {
-
     private String numeroTelefono;
     private String correoElectronico;
 
     public Contacto(String numeroTelefono, String correoElectronico) {
-
         setNumeroTelefono(numeroTelefono);
         setCorreoElectronico(correoElectronico);
     }
-
 
     public String getNumeroTelefono() {
         return numeroTelefono;
