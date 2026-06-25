@@ -29,7 +29,7 @@ Estructura:
 
 ```text
 📁 resources/                           # Archivo txt con los datos de los empleados   
-└── 📄 tours.txt
+└── 📄 empleados.txt
 
 📁 src/
 ├── 📁 app/                             # Punto de entrada de la aplicación
