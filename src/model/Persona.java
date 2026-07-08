@@ -5,8 +5,8 @@ public abstract class Persona {
     private int edad;
 
     public Persona(String nombre, int edad) {
-        this.nombre = nombre;
-        this.edad = edad;
+        setNombre(nombre);
+        setEdad(edad);
     }
 
     public String getNombre() {
@@ -14,6 +14,9 @@ public abstract class Persona {
     }
 
     public void setNombre(String nombre) {
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("El nombre de la persona no puede estar vacío. ");
+        }
         this.nombre = nombre;
     }
 
@@ -22,6 +25,9 @@ public abstract class Persona {
     }
 
     public void setEdad(int edad) {
+        if (edad < 0) {
+            throw new IllegalArgumentException("Una persona no puede tener edad negativa. ");
+        }
         this.edad = edad;
     }
 }

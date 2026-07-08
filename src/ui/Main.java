@@ -1,7 +1,11 @@
 package ui;
 
+import data.GestorEntidades;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hola!");
+        GestorEntidades gestorEntidades = new GestorEntidades();
+        gestorEntidades.crearRegistrables();
+        gestorEntidades.mostrarRegistrables();
     }
 }
