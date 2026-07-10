@@ -9,10 +9,10 @@ public class ColaboradorExterno extends Persona implements Registrable {
     }
 
     @Override
-    public void mostrarResumen() {
-        System.out.println("Nombre: " + super.getNombre() +
+    public String mostrarResumen() {
+        return "Nombre: " + super.getNombre() +
                 " | Edad: " + super.getEdad() +
-                " | Cargo: " + cargo + "\n");
+                " | Cargo: " + cargo + "\n";
     }
 
     public String getCargo() {

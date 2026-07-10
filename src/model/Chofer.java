@@ -9,10 +9,10 @@ public class Chofer extends Persona implements Registrable {
     }
 
     @Override
-    public void mostrarResumen() {
-        System.out.println("Nombre: " + super.getNombre() +
+    public String mostrarResumen() {
+        return "Nombre: " + super.getNombre() +
                 " | Edad: " + super.getEdad() +
-                " | Tipo Vehículo: " + tipoVehiculo + "\n");
+                " | Tipo Vehículo: " + tipoVehiculo + "\n";
     }
 
     public String getTipoVehiculo() {

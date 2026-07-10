@@ -8,10 +8,11 @@ import model.Registrable;
 import java.util.ArrayList;
 
 public class GestorEntidades {
-    ArrayList<Registrable> listaRegistrables;
+    private final ArrayList<Registrable> listaRegistrables;
 
     public GestorEntidades() {
         this.listaRegistrables = new ArrayList<>();
+        crearRegistrables();
     }
 
     public void crearRegistrables() {
@@ -23,18 +24,31 @@ public class GestorEntidades {
         listaRegistrables.add(new ColaboradorExterno("Tamara", 55, "Lavandería"));
     }
 
-    public void mostrarRegistrables() {
+    public void agregarRegistrable(Registrable registrable) {
+        if (registrable != null) {
+            this.listaRegistrables.add(registrable);
+        }
+    }
+
+    public String mostrarRegistrables() {
+        StringBuilder sb = new StringBuilder("Lista objetos\n");
+
         for (Registrable r : listaRegistrables) {
             if (r instanceof Chofer chofer) {
-                System.out.println("↓ Es un chofer!");
-                r.mostrarResumen();
+                sb.append("↓ Es un chofer\n");
             } else if (r instanceof ColaboradorExterno colaborador) {
-                System.out.println("↓ Es un colaborador!");
-                r.mostrarResumen();
+                sb.append("↓ Es un colaborador externo\n");
             } else {
-                System.out.println("↓ Y este otro es un guía!!");
-                r.mostrarResumen();
+                sb.append("↓ Es un guía\n");
             }
+
+            sb.append(r.mostrarResumen()).append("\n");
         }
+
+        return sb.toString();
+    }
+
+    public ArrayList<Registrable> getListaRegistrables() {
+        return listaRegistrables;
     }
 }

@@ -10,10 +10,10 @@ public class GuiaTuristico extends Persona implements Registrable {
     }
 
     @Override
-    public void mostrarResumen() {
-        System.out.println("Nombre: " + super.getNombre() +
+    public String mostrarResumen() {
+        return "Nombre: " + super.getNombre() +
                 " | Edad: " + super.getEdad() +
-                " | Idioma Secundario: " + idiomaSecundario + "\n");
+                " | Idioma Secundario: " + idiomaSecundario + "\n";
     }
 
     public String getIdiomaSecundario() {
