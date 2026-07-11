@@ -1,7 +1,7 @@
-package ui;
+package app;
 
 import data.GestorEntidades;
-import gui.VentanaAgencia;
+import ui.VentanaAgencia;
 
 public class Main {
     public static void main(String[] args) {

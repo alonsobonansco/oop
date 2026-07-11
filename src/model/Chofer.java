@@ -1,28 +1,28 @@
 package model;
 
 public class Chofer extends Persona implements Registrable {
-    private String tipoVehiculo;
+    private String tipoLicencia;
 
-    public Chofer(String nombre, int edad, String tipoVehiculo) {
+    public Chofer(String nombre, int edad, String tipoLicencia) {
         super(nombre, edad);
-        setTipoVehiculo(tipoVehiculo);
+        setTipoLicencia(tipoLicencia);
     }
 
     @Override
     public String mostrarResumen() {
         return "Nombre: " + super.getNombre() +
                 " | Edad: " + super.getEdad() +
-                " | Tipo Vehículo: " + tipoVehiculo + "\n";
+                " | Tipo Licencia: " + tipoLicencia + "\n";
     }
 
     public String getTipoVehiculo() {
-        return tipoVehiculo;
+        return tipoLicencia;
     }
 
-    public void setTipoVehiculo(String tipoVehiculo) {
-        if (tipoVehiculo == null || tipoVehiculo.isBlank()) {
+    public void setTipoLicencia(String tipoLicencia) {
+        if (tipoLicencia == null || tipoLicencia.isBlank()) {
             throw new IllegalArgumentException("El chofer debe tener un vehículo. ");
         }
-        this.tipoVehiculo = tipoVehiculo;
+        this.tipoLicencia = tipoLicencia;
     }
 }

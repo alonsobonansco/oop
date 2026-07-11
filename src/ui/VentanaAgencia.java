@@ -1,9 +1,10 @@
-package gui;
+package ui;
 
 import data.GestorEntidades;
 import model.Chofer;
 import model.ColaboradorExterno;
 import model.GuiaTuristico;
+import model.Vehiculo;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,13 +26,13 @@ public class VentanaAgencia extends JFrame {
         panelBotones.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
         JButton btnRegistrar = new JButton("Registrar nueva entidad");
-        //btnRegistrar.setFont(new Font("Poppins", Font.PLAIN, 16));
+        btnRegistrar.setFont(new Font("Times New Roman", Font.PLAIN, 22));
         btnRegistrar.setFocusable(false);
         JButton btnMostrar = new JButton("Ver todos los registros");
-        //btnRevisar.setFont(new Font("Poppins", Font.PLAIN, 16));
+        btnMostrar.setFont(new Font("Times New Roman", Font.PLAIN, 22));
         btnMostrar.setFocusable(false);
         JButton btnSalir = new JButton("Salir");
-        //btnSalir.setFont(new Font("Poppins", Font.PLAIN, 16));
+        btnSalir.setFont(new Font("Times New Roman", Font.PLAIN, 22));
         btnSalir.setFocusable(false);
         panelBotones.add(btnRegistrar);
         panelBotones.add(btnMostrar);
@@ -46,74 +47,51 @@ public class VentanaAgencia extends JFrame {
     }
 
     public void registrarEntidad() {
-        String[] opciones = {"Chofer", "Colaborador", "Guía"};
+        String[] opciones = {"Vehículo", "Colaborador"};
 
-        int seleccion = JOptionPane.showOptionDialog(
-                this,
-                "¿Qué tipo de entidad desea registrar?",
-                "Seleccionar tipo",
-                JOptionPane.DEFAULT_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                opciones,
-                opciones[0]
+        int opcionElegida = JOptionPane.showOptionDialog(
+                this, "¿Qué tipo de entidad desea registrar?",
+                "Seleccionar tipo", JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]
         );
 
-        switch (seleccion) {
+        switch (opcionElegida) {
             case 0 -> {
-                String nombre = JOptionPane.showInputDialog(
-                        this, "Nombre:");
-                if (nombre == null || nombre.isBlank()) return;
+                try {
+                    String tipoVehiculo = JOptionPane.showInputDialog(this, "Tipo Vehículo:");
+                    if (tipoVehiculo == null || tipoVehiculo.isBlank()) return;
 
-                String stringEdad = JOptionPane.showInputDialog(
-                        this, "Edad:");
-                if (stringEdad == null || stringEdad.isBlank()) return;
-                int edad = Integer.parseInt(stringEdad);
+                    String patente = JOptionPane.showInputDialog(this, "Patente:");
+                    if (patente == null || patente.isBlank()) return;
 
-                String tipoVehiculo = JOptionPane.showInputDialog(
-                        this, "Tipo de Vehículo:");
-                if (tipoVehiculo == null || tipoVehiculo.isBlank()) return;
+                    String stringCapacidad = JOptionPane.showInputDialog(this, "Capacidad máxima:");
+                    if (stringCapacidad == null || stringCapacidad.isBlank()) return;
+                    int capacidadMaxima = Integer.parseInt(stringCapacidad);
 
-                gestorEntidades.agregarRegistrable(new Chofer(nombre, edad, tipoVehiculo));
-                JOptionPane.showMessageDialog(this, "Registro exitoso");
+                    gestorEntidades.agregarRegistrable(new Vehiculo(tipoVehiculo, patente, capacidadMaxima));
+                    JOptionPane.showMessageDialog(this, "Registro exitoso");
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this, "Debe ingresar una edad válida.");
+                }
             }
 
             case 1 -> {
-                String nombre = JOptionPane.showInputDialog(
-                        this, "Nombre:");
+                String nombre = JOptionPane.showInputDialog(this, "Nombre:");
                 if (nombre == null || nombre.isBlank()) return;
 
-                String stringEdad = JOptionPane.showInputDialog(
-                        this, "Edad:");
+                String stringEdad = JOptionPane.showInputDialog(this, "Edad:");
                 if (stringEdad == null || stringEdad.isBlank()) return;
                 int edad = Integer.parseInt(stringEdad);
 
-                String cargo = JOptionPane.showInputDialog(
-                        this, "¿Cuál es su cargo?:");
+                String cargo = JOptionPane.showInputDialog(this, "¿Cuál es su cargo?:");
                 if (cargo == null || cargo.isBlank()) return;
 
                 gestorEntidades.agregarRegistrable(new ColaboradorExterno(nombre, edad, cargo));
                 JOptionPane.showMessageDialog(this, "Registro exitoso");
             }
 
-            case 2 -> {
-                String nombre = JOptionPane.showInputDialog(
-                        this, "Nombre:");
-                if (nombre == null || nombre.isBlank()) return;
-                String stringEdad = JOptionPane.showInputDialog(
-                        this, "Edad:");
-                if (stringEdad == null || stringEdad.isBlank()) return;
-                int edad = Integer.parseInt(stringEdad);
-
-                String idiomaSecundario = JOptionPane.showInputDialog(
-                        this, "Idioma secundario:");
-                if (idiomaSecundario == null || idiomaSecundario.isBlank()) return;
-
-                gestorEntidades.agregarRegistrable(new GuiaTuristico(nombre, edad, idiomaSecundario));
-                JOptionPane.showMessageDialog(this, "Registro exitoso");
+            default -> {
             }
-
-            default -> {}
         }
     }
 
