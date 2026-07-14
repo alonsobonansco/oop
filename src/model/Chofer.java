@@ -8,6 +8,11 @@ public class Chofer extends Persona implements Registrable {
         setTipoLicencia(tipoLicencia);
     }
 
+    /**
+     * Método solicitado. Usa @Override para implementar su propia lógica.
+     *
+     * @return Un String con la información específica de cada clase.
+     */
     @Override
     public String mostrarResumen() {
         return "Nombre: " + super.getNombre() +

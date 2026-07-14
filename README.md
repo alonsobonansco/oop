@@ -20,7 +20,7 @@ comportamiento común y puedan ser gestionadas desde una misma colección.
 Además, se busca dotar al sistema de una interfaz gráfica básica para
 facilitar la interacción por parte del personal administrativo."
 
-Para solucionar la problemática, se implementa una interfaz que permita
+Para solucionar la problemática, se implementa una interfaz que permite
 tratar distintas entidades de forma unificada. Se aplica herencia y utiliza
 una ArrayList para almacenar y recorrer objetos, diferenciándolos mediante
 instanceof. Por último, se crea una interfaz visual simple que permite
@@ -37,12 +37,13 @@ ingresar nuevos objetos y mostrar los existentes.
 ├── 📁 data/                            # Funciones sobre la lista de arreglos
 │   └── 📄 GestorEntidades.java
 ├── 📁 model/                           # Clases del dominio
-│   ├── 📄 Persona.java                 - Superclase
-│   ├── 📄 Chofer.java                  - Subclase 
-│   ├── 📄 ColaboradorExterno.java      - Subclase
-│   ├── 📄 GuiaTuristico.java           - Subclase
-│   └── 📄 Registrable.java             - Interfaz
-└── 📁 ui/                              # Instancia y añade los objetos a una lista
+│   ├── 📄 Registrable.java             - Interfaz en común
+│   ├── 📄 Persona.java                 
+│   ├── 📄 Chofer.java                  
+│   ├── 📄 ColaboradorExterno.java      
+│   ├── 📄 GuiaTuristico.java
+│   └── 📄 Vehiculo.java
+└── 📁 ui/                              # Lógica de la interfaz para el usuario
     └── 📄 VentanaAgencia.java
 ```
 
@@ -55,10 +56,10 @@ Requisitos del sistema:
 * **JDK:** Java 25 (LTS) o superior
 
 1. Clonar el repositorio desde la terminal en Intellij:  
-   git clone https://github.com/alonsobonansco/LlanquihueTourS7.git
+   git clone https://github.com/alonsobonansco/LlanquihueTourAppS8.git
 2. Marcar la carpeta `src` como "sources root" haciendo click derecho en ella
    -> Mark Directory As -> Sources Root
-3. Ejecutar el main desde su clase en el paquete ui
+3. Ejecutar el main desde su clase en el paquete app
 
 Repositorio Github:
-https://github.com/alonsobonansco/LlanquihueTourS7
+https://github.com/alonsobonansco/LlanquihueTourAppS8

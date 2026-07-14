@@ -4,15 +4,21 @@ import model.*;
 
 import java.util.ArrayList;
 
+/**
+ * Clase que se encarga de administrar los objetos registrables.
+ */
 public class GestorEntidades {
     private final ArrayList<Registrable> listaRegistrables;
 
     public GestorEntidades() {
         this.listaRegistrables = new ArrayList<>();
-        crearRegistrables();
+        crearRegistrablesPredeterminados();
     }
 
-    public void crearRegistrables() {
+    /**
+     * Método que crea objetos de tipo Registrable y añade a una ArrayList.
+     */
+    public void crearRegistrablesPredeterminados() {
         listaRegistrables.add(new Chofer("José", 32, "A2"));
         listaRegistrables.add(new ColaboradorExterno("María", 45, "Hospedaje"));
         listaRegistrables.add(new Chofer("Roberto", 34, "B"));
@@ -23,14 +29,25 @@ public class GestorEntidades {
         listaRegistrables.add(new Vehiculo("Camioneta", "QWER77", 5));
     }
 
+    /**
+     * Método
+     * @param registrable Objeto creado con los datos ingresados por parte del usuario.
+     */
     public void agregarRegistrable(Registrable registrable) {
         if (registrable != null) {
             this.listaRegistrables.add(registrable);
         }
     }
 
+    /**
+     * Método que diferencia entre las distintas clases que conforman la interfaz
+     * Registrable. Añade la información de mostrarResumen de cada una de las clases
+     * a un StringBuilder.
+     *
+     * @return Un Stringbuilder con la información de los objetos Registrable
+     */
     public String mostrarRegistrables() {
-        StringBuilder sb = new StringBuilder("Lista objetos\n");
+        StringBuilder sb = new StringBuilder();
 
         for (Registrable r : listaRegistrables) {
             if (r instanceof Chofer chofer) {
@@ -47,9 +64,5 @@ public class GestorEntidades {
         }
 
         return sb.toString();
-    }
-
-    public ArrayList<Registrable> getListaRegistrables() {
-        return listaRegistrables;
     }
 }

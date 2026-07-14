@@ -1,9 +1,7 @@
 package ui;
 
 import data.GestorEntidades;
-import model.Chofer;
 import model.ColaboradorExterno;
-import model.GuiaTuristico;
 import model.Vehiculo;
 
 import javax.swing.*;
@@ -34,24 +32,27 @@ public class VentanaAgencia extends JFrame {
         JButton btnSalir = new JButton("Salir");
         btnSalir.setFont(new Font("Times New Roman", Font.PLAIN, 22));
         btnSalir.setFocusable(false);
+
         panelBotones.add(btnRegistrar);
         panelBotones.add(btnMostrar);
         panelBotones.add(btnSalir);
-
         add(panelBotones, BorderLayout.CENTER);
 
         btnRegistrar.addActionListener(e -> registrarEntidad());
         btnMostrar.addActionListener(e -> mostrarRegistros());
         btnSalir.addActionListener(e -> salir());
-
     }
 
+    /**
+     * Método que recibe los datos ingresados por el usuario, los transforma en un objeto
+     * y envía a GestorEntidades.
+     */
     public void registrarEntidad() {
         String[] opciones = {"Vehículo", "Colaborador"};
 
         int opcionElegida = JOptionPane.showOptionDialog(
                 this, "¿Qué tipo de entidad desea registrar?",
-                "Seleccionar tipo", JOptionPane.DEFAULT_OPTION,
+                "Seleccionar entidad", JOptionPane.DEFAULT_OPTION,
                 JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]
         );
 
@@ -69,25 +70,33 @@ public class VentanaAgencia extends JFrame {
                     int capacidadMaxima = Integer.parseInt(stringCapacidad);
 
                     gestorEntidades.agregarRegistrable(new Vehiculo(tipoVehiculo, patente, capacidadMaxima));
-                    JOptionPane.showMessageDialog(this, "Registro exitoso");
+                    JOptionPane.showMessageDialog(
+                            this, "Vehículo registrado correctamente.", "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(this, "Debe ingresar una edad válida.");
+                    JOptionPane.showMessageDialog(
+                            this, "Debe ingresar una capacidad válida.", "Error", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
 
             case 1 -> {
-                String nombre = JOptionPane.showInputDialog(this, "Nombre:");
-                if (nombre == null || nombre.isBlank()) return;
+                try {
+                    String nombre = JOptionPane.showInputDialog(this, "Nombre:");
+                    if (nombre == null || nombre.isBlank()) return;
 
-                String stringEdad = JOptionPane.showInputDialog(this, "Edad:");
-                if (stringEdad == null || stringEdad.isBlank()) return;
-                int edad = Integer.parseInt(stringEdad);
+                    String stringEdad = JOptionPane.showInputDialog(this, "Edad:");
+                    if (stringEdad == null || stringEdad.isBlank()) return;
+                    int edad = Integer.parseInt(stringEdad);
 
-                String cargo = JOptionPane.showInputDialog(this, "¿Cuál es su cargo?:");
-                if (cargo == null || cargo.isBlank()) return;
+                    String cargo = JOptionPane.showInputDialog(this, "¿Cuál es su cargo?:");
+                    if (cargo == null || cargo.isBlank()) return;
 
-                gestorEntidades.agregarRegistrable(new ColaboradorExterno(nombre, edad, cargo));
-                JOptionPane.showMessageDialog(this, "Registro exitoso");
+                    gestorEntidades.agregarRegistrable(new ColaboradorExterno(nombre, edad, cargo));
+                    JOptionPane.showMessageDialog(
+                            this, "Colaborador registrado correctamente.", "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(
+                            this, "Debe ingresar una edad válida.", "Error", JOptionPane.INFORMATION_MESSAGE);
+                }
             }
 
             default -> {
@@ -95,11 +104,14 @@ public class VentanaAgencia extends JFrame {
         }
     }
 
+    /**
+     * Llama al método mostrarRegistrables de GestorEntidades y lo muestra en una ventana.
+     */
     public void mostrarRegistros() {
         String registros = gestorEntidades.mostrarRegistrables();
 
         JOptionPane.showMessageDialog(
-                this, registros, "Hola", JOptionPane.INFORMATION_MESSAGE);
+                this, registros, "Registro de todas las entidades", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void salir() {
