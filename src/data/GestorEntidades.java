@@ -31,6 +31,7 @@ public class GestorEntidades {
 
     /**
      * Método
+     *
      * @param registrable Objeto creado con los datos ingresados por parte del usuario.
      */
     public void agregarRegistrable(Registrable registrable) {
