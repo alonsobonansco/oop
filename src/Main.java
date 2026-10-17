@@ -1,5 +1,3 @@
-package app;
-
 import data.CargadorEntidades;
 import model.Registrable;
 import service.GestorEntidades;

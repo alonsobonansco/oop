@@ -6,10 +6,9 @@ package model;
 public class Chofer extends Empleado implements Registrable {
     private String tipoLicencia;
 
-    public Chofer(String nombre, int edad, String rut,
-                  String calle, String sector, String ciudad,
+    public Chofer(String nombre, int edad, String rut, Direccion direccion,
                   double sueldo, String tipoLicencia) {
-        super(nombre, edad, rut, calle, sector, ciudad, sueldo);
+        super(nombre, edad, rut, direccion, sueldo);
         setTipoLicencia(tipoLicencia);
     }
 

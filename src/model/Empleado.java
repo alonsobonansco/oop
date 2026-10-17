@@ -6,10 +6,9 @@ package model;
 public abstract class Empleado extends Persona {
     private double sueldo;
 
-    public Empleado(String nombre, int edad, String rut,
-                    String calle, String sector, String ciudad,
+    public Empleado(String nombre, int edad, String rut, Direccion direccion,
                     double sueldo) {
-        super(nombre, edad, rut, calle, sector, ciudad);
+        super(nombre, edad, rut, direccion);
         setSueldo(sueldo);
     }
 
