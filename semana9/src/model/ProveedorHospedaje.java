@@ -6,10 +6,9 @@ package model;
 public class ProveedorHospedaje extends Empleado implements Registrable {
     private String tipoHospedaje;
 
-    public ProveedorHospedaje(String nombre, int edad, String rut,
-                              String calle, String sector, String ciudad,
+    public ProveedorHospedaje(String nombre, int edad, String rut, Direccion direccion,
                               double sueldo, String tipoHospedaje) {
-        super(nombre, edad, rut, calle, sector, ciudad, sueldo);
+        super(nombre, edad, rut, direccion, sueldo);
         setTipoHospedaje(tipoHospedaje);
     }
 

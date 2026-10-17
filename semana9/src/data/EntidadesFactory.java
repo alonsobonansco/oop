@@ -34,6 +34,7 @@ public class EntidadesFactory {
         String calle = partes[4];
         String sector = partes[5];
         String ciudad = partes[6];
+        Direccion direccion = new Direccion(calle, sector, ciudad);
         double sueldo = Double.parseDouble(partes[7]);
 
         return switch (tipo) {
@@ -42,7 +43,7 @@ public class EntidadesFactory {
                     throw new LineaInvalidaException("Formato no válido para guía. ");
                 }
                 List<String> idiomas = List.of(partes[8].split("\\|"));
-                yield new GuiaTuristico(nombre, edad, rut, calle, sector, ciudad, sueldo, idiomas);
+                yield new GuiaTuristico(nombre, edad, rut, direccion, sueldo, idiomas);
             }
 
             case "Chofer" -> {
@@ -50,7 +51,7 @@ public class EntidadesFactory {
                     throw new LineaInvalidaException("Formato no válido para chofer. ");
                 }
                 String tipoLicencia = partes[8];
-                yield new Chofer(nombre, edad, rut, calle, sector, ciudad, sueldo, tipoLicencia);
+                yield new Chofer(nombre, edad, rut, direccion, sueldo, tipoLicencia);
             }
 
             case "Hospedaje" -> {
@@ -58,7 +59,7 @@ public class EntidadesFactory {
                     throw new LineaInvalidaException("Formato no válido para proveedor de hospedaje. ");
                 }
                 String tipoHospedaje = partes[8];
-                yield new ProveedorHospedaje(nombre, edad, rut, calle, sector, ciudad, sueldo, tipoHospedaje);
+                yield new ProveedorHospedaje(nombre, edad, rut, direccion, sueldo, tipoHospedaje);
             }
 
             default -> throw new LineaInvalidaException("Registro no válido. " +
